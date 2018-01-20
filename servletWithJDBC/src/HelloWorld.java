@@ -24,13 +24,25 @@ public class HelloWorld extends HttpServlet {
 
 	String query = "SELECT * FROM user";
 	
+	/*
+	 * Try to use logger and annotation. Use gradle to pack the project and output to a .war file??
+	 */
+	
+	/*
+	 *  
+	 * @see javax.servlet.http.HttpServlet#doGet(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
+	 */
+	
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// register the driver
 		resp.setContentType("text/html");
 		
 		PrintWriter out = resp.getWriter();
-		out.println("<h1>" + query + "</h1>");
+		
+		// print out the debugging infos.
+		out.println(query);
 
 		try {
 			Class.forName(DRIVER);
@@ -46,6 +58,7 @@ public class HelloWorld extends HttpServlet {
 		// successfully connected to the db.
 		try(Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
 			Statement stmt = conn.createStatement()){
+				out.print("An connection to db has been opened");
 
 				try(ResultSet rs = stmt.executeQuery(query)){
 
