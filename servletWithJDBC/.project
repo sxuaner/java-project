@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
+<<<<<<< HEAD
 	<name>servlet</name>
+=======
+	<name>servletWithJDBC</name>
+>>>>>>> c5fed632e716857121257a8ae677b18876b79277
 	<comment></comment>
 	<projects>
 	</projects>
