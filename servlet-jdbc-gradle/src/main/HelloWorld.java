@@ -45,9 +45,8 @@ public class HelloWorld extends HttpServlet {
 		// successfully connected to the db.
 		try(Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
 			Statement stmt = conn.createStatement()){
-
-				try(ResultSet rs = stmt.executeQuery(query)){
-
+				
+			try(ResultSet rs = stmt.executeQuery(query)){
 				while(rs.next()) {
 					int id = rs.getInt("id");
 					String name = rs.getString("name");
